@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import actions from './modules/action';
+
+// const { createItemSaga, deleteItemSaga } = actions;
+
+function App(props) {
+	const { drizzleStatus, currentBalance, currentAccount } = props;
+
+	if (!drizzleStatus.initialized)
+		return <div></div>;
+	
+	console.log(props);
+	return (
+		<div>
+			<div>Địa chỉ của tôi: {currentAccount}</div>
+			<div>Số tiền đang có: {currentBalance} wei</div>
+			<div>
+				Địa chỉ người nhận
+				<input />
+			</div>
+			<div>
+				Số tiền cần chuyển
+				<input />
+			</div>
+			<button onClick={() => {}}>Chuyển</button>
+		</div>
+	);
 }
 
-export default App;
+export default connect(({ items, drizzleStatus, web3, accountBalances, accounts }) => {
+	const currentAccount = accounts[0];
+	const currentBalance = accountBalances[currentAccount];
+	return {
+		items,
+		drizzleStatus,
+		web3,
+		currentBalance,
+		currentAccount
+	};
+})(App);

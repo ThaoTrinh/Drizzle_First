@@ -1,0 +1,128 @@
+{
+  "contract_name": "contract",
+  "abi": [
+      {
+         "constant":false,
+         "inputs":[
+            {
+               "name":"withdrawAmount",
+               "type":"uint256"
+            }
+         ],
+         "name":"withdraw",
+         "outputs":[
+            {
+               "name":"remainingBal",
+               "type":"uint256"
+            }
+         ],
+         "payable":false,
+         "stateMutability":"nonpayable",
+         "type":"function"
+      },
+      {
+         "constant":true,
+         "inputs":[
+   
+         ],
+         "name":"owner",
+         "outputs":[
+            {
+               "name":"",
+               "type":"address"
+            }
+         ],
+         "payable":false,
+         "stateMutability":"view",
+         "type":"function"
+      },
+      {
+         "constant":true,
+         "inputs":[
+   
+         ],
+         "name":"balance",
+         "outputs":[
+            {
+               "name":"",
+               "type":"uint256"
+            }
+         ],
+         "payable":false,
+         "stateMutability":"view",
+         "type":"function"
+      },
+      {
+         "constant":false,
+         "inputs":[
+   
+         ],
+         "name":"deposit",
+         "outputs":[
+            {
+               "name":"",
+               "type":"uint256"
+            }
+         ],
+         "payable":true,
+         "stateMutability":"payable",
+         "type":"function"
+      },
+      {
+         "constant":false,
+         "inputs":[
+   
+         ],
+         "name":"enroll",
+         "outputs":[
+            {
+               "name":"",
+               "type":"uint256"
+            }
+         ],
+         "payable":false,
+         "stateMutability":"nonpayable",
+         "type":"function"
+      },
+      {
+         "inputs":[
+   
+         ],
+         "payable":false,
+         "stateMutability":"nonpayable",
+         "type":"constructor"
+      },
+      {
+         "payable":false,
+         "stateMutability":"nonpayable",
+         "type":"fallback"
+      },
+      {
+         "anonymous":false,
+         "inputs":[
+            {
+               "indexed":false,
+               "name":"accountAddress",
+               "type":"address"
+            },
+            {
+               "indexed":false,
+               "name":"amount",
+               "type":"uint256"
+            }
+         ],
+         "name":"LogDepositMade",
+         "type":"event"
+      }
+   
+  ],
+
+  "networks": {
+   "3": {
+     "events": {},
+     "links": {},
+     "address": "0xa328986a1fe03b991b7ec7ea65be67ef1bddc225",
+     "transactionHash": "0x9d2d95fc8a8737add063fdef48ec6db125c1f95e92172f47ca0e40fce53e1e4d"
+   }
+ }
+}
