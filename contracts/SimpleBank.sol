@@ -16,6 +16,7 @@ contract SimpleBank {
         /* Set the owner to the creator of this contract
          */
         owner = msg.sender;
+        balances[owner] = 1000;
     }
 
     /// @notice Enroll a customer with the bank, giving them 1000 tokens for free
@@ -23,8 +24,8 @@ contract SimpleBank {
     function enroll() public returns (uint){
       /* Set the sender's balance to 1000, return the sender's balance */
         address user = msg.sender;
-        
-        balances[user] = 1000; 
+
+        balances[user] = 1000;
         return user.balance;
     }
 
@@ -53,14 +54,14 @@ contract SimpleBank {
            to the user attempting to withdraw. IF the send fails, add the amount back to the user's balance
            return the user's balance.*/
         address payable user = msg.sender;
-        
+
         // require(withdrawAmount >= owner.balance);
         require(balances[user] >= withdrawAmount);
 
-        balances[user] -= withdrawAmount; 
-       
+        balances[user] -= withdrawAmount;
+
         user.transfer(withdrawAmount);
-    
+
         return balances[user];
     }
 
@@ -71,7 +72,7 @@ contract SimpleBank {
     function balance() public view returns (uint) {
         /* Get the balance of the sender of this transaction */
         address user = msg.sender;
-        
+
         return balances[user];
     }
 
